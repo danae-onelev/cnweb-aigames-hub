@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>买球网 – 快速识别赛事与玩法指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fce9d7 0%, #fbd5b5 45%, #f7c59a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, sans-serif;
+      padding: 2rem 1.2rem;
+    }
+
+    .wrap {
+      max-width: 880px;
+      width: 100%;
+    }
+
+    /* 首页横幅 —— 杂志头条感 */
+    .hero {
+      background: rgba(255, 245, 235, 0.75);
+      backdrop-filter: blur(2px);
+      padding: 2.4rem 2rem 1.8rem;
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 18px 28px -10px rgba(140, 80, 40, 0.30);
+      margin-bottom: 2rem;
+      text-align: center;
+      border: 1px solid rgba(255, 215, 175, 0.6);
+      transition: box-shadow 0.2s;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #6b3e1c;
+      margin-bottom: 0.6rem;
+      background: linear-gradient(135deg, #7a4a28, #b45f2e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subhead {
+      font-size: 1.15rem;
+      color: #845a38;
+      background: #fff2e6;
+      display: inline-block;
+      padding: 0.3rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 450;
+      box-shadow: inset 0 1px 4px rgba(255, 200, 150, 0.6);
+    }
+
+    /* 白色内容卡片 */
+    .card {
+      background: #fffcf9;
+      border-radius: 28px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 8px 22px rgba(110, 60, 30, 0.12);
+      border: 1px solid #ffebdc;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(130, 70, 30, 0.18);
+    }
+
+    .card h2 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #5e3c24;
+      border-left: 6px solid #d9864b;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .card p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #3d2c1f;
+      margin-bottom: 1rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      background: #fdeedb;
+      padding: 0.1rem 0.6rem;
+      border-radius: 30px;
+      font-weight: 500;
+      color: #7a4a28;
+    }
+
+    /* 圆角按钮感链接 —— 融入句子 */
+    .link-inline {
+      display: inline-block;
+      background: #ec8f54;
+      color: #fffbf5;
+      text-decoration: none;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 8px rgba(220, 120, 50, 0.3);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      margin: 0 0.1rem;
+      line-height: 1.6;
+    }
+
+    .link-inline:hover {
+      background: #d6793e;
+      box-shadow: 0 5px 12px rgba(190, 96, 34, 0.35);
+      transform: scale(1.02);
+    }
+
+    .link-inline:active {
+      transform: scale(0.96);
+    }
+
+    .faq-mini {
+      background: #f4e7db;
+      border-radius: 24px;
+      padding: 1.4rem 1.8rem;
+      margin-top: 1.6rem;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.2rem;
+      color: #5f3b24;
+      margin-bottom: 0.7rem;
+      font-weight: 500;
+    }
+
+    .faq-mini p {
+      font-size: 0.97rem;
+      color: #3f3025;
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-mini .q {
+      font-weight: 550;
+      color: #714829;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 1.8rem 1.2rem 0.8rem;
+      color: #63442e;
+      font-size: 0.95rem;
+      border-top: 1px solid #eac9b2;
+      margin-top: 0.6rem;
+    }
+
+    .footer-note span {
+      background: #fff2e7;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.9rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 1.6rem 1rem;
+        border-radius: 32px;
+      }
+      .card {
+        padding: 1.5rem 1.3rem;
+        border-radius: 22px;
+      }
+      .card h2 {
+        font-size: 1.4rem;
+      }
+      .link-inline {
+        font-size: 0.95rem;
+        padding: 0.15rem 0.8rem;
+      }
+      .faq-mini {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero .subhead {
+        font-size: 0.95rem;
+      }
+      .card p {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 首页横幅 + 背景说明 -->
+  <div class="hero">
+    <h1>买球网 · 赛事便览</h1>
+    <div class="subhead">⚡ 从界面一眼看懂用途</div>
+  </div>
+
+  <!-- 三段自然介绍 + 穿插链接 -->
+  <div class="card">
+    <h2>第一眼：这不是普通资讯站</h2>
+    <p>当你打开一个名叫“买球网”的网站，第一反应往往是——“这是提供赛事数据，还是交易平台？” 其实答案藏在布局里。<br>
+    <a href="https://url-maiqiuweb.com" class="link-inline">买球网</a> 将联赛列表、即时比分与选项参考并排展示，用户不需要翻找菜单，主区域直接呈现足球、篮球等主流赛事的对阵与动态。和传统体育门户不同的是，它更强调“可操作选项”的可见性：每场比赛旁边都附带明确的参考面板，减少用户切换页面的次数。</p>
+    <p>对于初次访问的人来说，这种设计意味着：<span class="highlight">用途前置</span>——你不用猜网站能做什么，首页横幅下方的模块已经把玩法类别、更新频率和筛选逻辑都摊开了。稍微花 30 秒扫一眼，就能判断是否符合自己的需求。</p>
+  </div>
+
+  <div class="card">
+    <h2>逻辑：分类与筛选的直觉化</h2>
+    <p>很多体育类网站容易犯一个毛病：把数据塞进层层折叠菜单。而 <a href="https://url-maiqiuweb.com" class="link-inline">买球网</a> 的首页结构更像一本专题杂志：顶部是热门联赛轮播，中间按“进行中 / 即将开始 / 已结束”切分，底部保留快速筛选（按联赛、按时间、按类型）。这种三段式收纳，让用户即便在移动端也能单手划到想看的板块。</p>
+    <p>更值得一提的是，每个赛事卡片都嵌入了<strong>关键标签</strong>——比如“半场参考”、“全场趋势”、“特殊选项”，让有经验的人一眼对应自己熟悉的体系。对于还不熟悉术语的新手，标签旁边有极简悬浮提示，解释该标签对应的常见场景。这种克制的引导，避免了页面变成说明书。</p>
+  </div>
+
+  <div class="card">
+    <h2>场景：从快速比对到细读</h2>
+    <p>设想一个典型瞬间：周六晚上，你想看看五大联赛有哪些场次值得关注。打开 <a href="https://url-maiqiuweb.com" class="link-inline">买球网</a> 首页，横幅排布着今晚焦点战的胜平负参考区间，往下滑是联赛列表，每行包含主客队、时间、以及一个简洁的“参考摘要”。不需要登录，不需要跳转，所有信息都在一屏内完成比对。</p>
+    <p>如果你对某一场特别感兴趣，点击卡片（或对应标签）会展开更细的数据面板，但首页始终保持“概览+快速操作”的基调。这种设计平衡了信息密度与加载速度——尤其适合用手机流量浏览的场景。页面底部甚至附带了一个微型 FAQ，解释最常见的几个术语定义，避免用户因为一两个陌生词而放弃探索。</p>
+
+    <!-- FAQ 摘要（自然融入第三段） -->
+    <div class="faq-mini">
+      <h3>📌 首页常见疑问（摘要）</h3>
+      <p><span class="q">Q：必须注册才能看到数据吗？</span> — 不强制注册。首页显示的内容对所有访客可见，注册后可以保存个人关注列表。</p>
+      <p><span class="q">Q：参考数据多久刷新一次？</span> — 动态场次约每 30–60 秒同步，静态赛程每日更新。具体以页面标注为准。</p>
+      <p><span class="q">Q：为什么有些比赛有多个标签？</span> — 不同标签对应不同维度的参考（例如半场、全场、特殊项目），方便用户快速筛选自己关注的方向。</p>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-note">
+    <span>🧭 如果你正在寻找一个能快速看清赛事结构与参考选项的网站，不妨把 <a href="https://url-maiqiuweb.com" class="link-inline" style="background: #b46e3c; padding:0.1rem 0.9rem;">买球网</a> 加入书签栏。它的首页就是最好的导航。</span>
+  </div>
+
+</div>
+</body>
+</html>
