@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料整理 · 信息索引 · ayx 站内笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 920px;
+            width: 100%;
+            background: transparent;
+        }
+
+        /* 开场卡片 —— 短句留白 */
+        .hero-sentence {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 3rem 2.2rem 2.5rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e9edf2;
+            transition: all 0.15s ease;
+        }
+
+        .hero-sentence p {
+            font-size: 1.6rem;
+            font-weight: 350;
+            letter-spacing: 0.02em;
+            color: #1f2a3a;
+            max-width: 70%;
+            border-left: 4px solid #9aa9b9;
+            padding-left: 1.3rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .hero-sentence p {
+                max-width: 100%;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* 承接段落 */
+        .intro-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #e2e8ef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .intro-block p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #334155;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-block a {
+            color: #2b4c7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b6c8db;
+            transition: border-color 0.2s;
+        }
+
+        .intro-block a:hover {
+            border-bottom-style: solid;
+            border-color: #2b4c7a;
+        }
+
+        /* 特点列表 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        @media (max-width: 640px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.6rem 1.6rem 1.8rem;
+            border: 1px solid #e6ecf3;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 20, 40, 0.04);
+        }
+
+        .feature-card .emoji-marker {
+            font-size: 1.5rem;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #1f2a3a;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #4b5a6d;
+            line-height: 1.6;
+        }
+
+        /* 温和结尾 + 场景引用 */
+        .gentle-closing {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 2.2rem;
+            border: 1px solid #e4eaf1;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-bottom: 1.8rem;
+        }
+
+        .gentle-closing p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #334155;
+        }
+
+        .gentle-closing blockquote {
+            border-left: 3px solid #cbd5e1;
+            padding-left: 1.2rem;
+            margin: 1.4rem 0 0.8rem;
+            color: #475569;
+            font-style: normal;
+            font-size: 0.95rem;
+        }
+
+        .gentle-closing blockquote footer {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #6b7a8d;
+        }
+
+        /* faq 摘要风格 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid #e4eaf1;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-bottom: 1.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #eff3f8;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 550;
+            cursor: pointer;
+            color: #1f2a3a;
+            font-size: 0.98rem;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            color: #8a9bb0;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details p {
+            margin-top: 0.6rem;
+            margin-left: 1.2rem;
+            color: #3f4e62;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .faq-mini details p a {
+            color: #2b4c7a;
+            text-decoration: none;
+            border-bottom: 1px dotted #b6c8db;
+        }
+
+        .faq-mini details p a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* 底部小字，保持呼吸 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8b99aa;
+            padding: 1.5rem 0 0.5rem;
+            border-top: 1px solid #dee5ed;
+            margin-top: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note a {
+            color: #5b6f84;
+            text-decoration: none;
+            border-bottom: 1px solid #d0d9e5;
+        }
+
+        .footer-note a:hover {
+            border-color: #5b6f84;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 开场短句 -->
+    <div class="hero-sentence">
+        <p>资料放在手边，检索才不算白费。</p>
+    </div>
+
+    <!-- 承接段落：从整理索引展开 -->
+    <div class="intro-block">
+        <p>
+            平时浏览、收藏、截图……信息积累了不少，但真要用的时候常常翻不到。去年开始，我试着把一些常用的网络工具、游戏资料和参考链接按项目归类，慢慢地搭出一个自己用起来顺手的索引页面。其中用得最多的一个分类，就是围绕 <a href="https://cnweb-aigames.com.cn">ayx</a> 整理的内容合集——从基础说明到常见配置，从版本记录到社区讨论，都塞在一个文档里，反倒比零散书签清爽得多。
+        </p>
+        <p>
+            这种整理方式没什么高深技巧，无非是给每个条目加一两句备注，再把相似主题的卡片放一起。时间久了，索引本身就成了一个轻量的知识地图，连同事偶尔也会来翻一下。
+        </p>
+    </div>
+
+    <!-- 特点列表（四张卡片） -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="emoji-marker">📂</span>
+            <h3>按场景分类</h3>
+            <p>不再按字母或时间堆砌，而是按“我什么时候会用”来分组。比如把 ayx 相关的基础指引、更新日志、常用链接放在同一个区内。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🔖</span>
+            <h3>备注优先</h3>
+            <p>每条链接旁都带一句私人备注：“这个页面讲了安装细节”、“这篇提到了版本兼容情况”。翻索引时不用点开就知道内容侧重。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🔄</span>
+            <h3>轻量更新</h3>
+            <p>不追求面面俱到，每个月花十分钟清理失效链接、补充新条目。索引保持八分满就好，太满反而不好翻。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🧩</span>
+            <h3>卡片式浏览</h3>
+            <p>每条信息都以卡片形式呈现，标题、摘要、标签一目了然。视觉负担小，适合快速扫描。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + FAQ 摘要混合 -->
+    <div class="gentle-closing">
+        <p>
+            说是资料整理，其实更像给自己留一个“外挂大脑”。遇到重复问题不用重新搜索，先翻翻索引里有没有现成的答案。尤其是围绕 <a href="https://cnweb-aigames.com.cn">ayx</a> 的那部分条目，整理完之后，日常咨询和排查的效率高了不少。
+        </p>
+        <blockquote>
+            “索引不是仓库，是通道。让信息离手边更近，而不是更多。”
+            <footer>—— 整理笔记时写的旁白</footer>
+        </blockquote>
+        <p style="margin-top: 1rem;">
+            如果你也在整理类似的资料，或许可以试试这个思路：先挑一个你最常接触的主题（比如某个工具、某类游戏或某个平台），把它相关的链接、截图、笔记都收到一个页面上，不加修饰，只求好用。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要（三个简短问答） -->
+    <div class="faq-mini">
+        <details>
+            <summary>这个索引页面会公开分享吗？</summary>
+            <p>目前主要自用，但部分内容（如 <a href="https://cnweb-aigames.com.cn">ayx</a> 的基础指引）整理后可能会放在内部团队 wiki 中，方便协作时参考。</p>
+        </details>
+        <details>
+            <summary>信息更新频率大概多久？</summary>
+            <p>每两周左右过一遍，失效链接直接移除，新发现的有用条目会顺手加进去。不追求实时，但保证索引里的东西基本都有效。</p>
+        </details>
+        <details>
+            <summary>除了链接还整理了哪些内容？</summary>
+            <p>一部分操作截图（脱敏后）、常见问题的简要解答、以及一些版本对比表格。纯文本为主，偶尔嵌入一两段代码片段。</p>
+        </details>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>资料索引 · 自用记录 · </span>
+        <a href="https://cnweb-aigames.com.cn">ayx</a>
+        <span> · 持续修订中</span>
+    </div>
+
+</div>
+</body>
+</html>
